@@ -1,11 +1,10 @@
 "use client"
 
-import { CartContext } from "@/context/CartContext"
-import { useContext } from "react"
+import { useCart } from "@/context/CartContext"
 
 export default function CartIcon() {
 
-    const cart = useContext(CartContext)
+    const cart = useCart()
 
     return (
 

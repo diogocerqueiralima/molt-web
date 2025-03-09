@@ -1,3 +1,5 @@
+import Showcase from "@/components/Showcase";
+
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -14,7 +16,13 @@ export default function Home() {
 
       </div>
 
-      <div className="w-3/4 my-8 mx-auto">
+      <div className="w-3/4 my-16 mx-auto">
+
+        <div>
+
+          <Showcase title="Featured Products" href="/products" />
+
+        </div>
 
       </div>
 

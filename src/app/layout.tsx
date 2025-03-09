@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import CartProvider from "@/context/CartContext";
+import ProductServiceProvider from "@/context/ProductServiceContext";
 
 export const metadata: Metadata = {
   title: "MOLT",
@@ -9,16 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode;}>) {
+
   return (
     <html lang="en">
       <body className="font-roboto antialiased">
 
-        <CartProvider>
+        <ProductServiceProvider url="http://localhost:9090/api/v1/products">
 
-          <Header />
+          <CartProvider>
 
-          {children}
-        </CartProvider>
+            <Header />
+            {children}
+
+          </CartProvider>
+
+        </ProductServiceProvider>
+
       </body>
     </html>
   );

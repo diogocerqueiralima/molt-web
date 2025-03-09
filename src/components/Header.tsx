@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import CartIcon from "./CartIcon";
 import SearchBar from "./SearchBar";
@@ -31,7 +33,7 @@ export default function Header() {
 
         <header className="fixed w-full backdrop-blur-md flex flex-row justify-around text-(--primary) py-8 items-center">
 
-            <h1 className="text-4xl tracking-widest font-bold">MOLT</h1>
+            <h1 className="text-4xl tracking-widest font-bold cursor-default">MOLT</h1>
 
             <ul className="flex flex-flow gap-8 text-2xl items-center">
                 { links.map(link => <li key={ link.id } className="transition duration-500 hover:opacity-75"><Link href={ link.href }>{ link.name }</Link></li>) }
