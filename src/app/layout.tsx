@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import CartProvider from "@/context/CartContext";
 import ProductServiceProvider from "@/context/ProductServiceContext";
+import CategoryServiceProvider from "@/context/CategoryServiceContext";
 
 export const metadata: Metadata = {
   title: "MOLT",
@@ -15,16 +16,16 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
     <html lang="en">
       <body className="font-roboto antialiased">
 
-        <ProductServiceProvider url="http://localhost:9090/api/v1/products">
+        <CategoryServiceProvider url="http://localhost:9090/api/v1/categories">
+          <ProductServiceProvider url="http://localhost:9090/api/v1/products">
+            <CartProvider>
+            
+              <Header />
+              {children}
 
-          <CartProvider>
-
-            <Header />
-            {children}
-
-          </CartProvider>
-
-        </ProductServiceProvider>
+            </CartProvider>
+          </ProductServiceProvider>
+        </CategoryServiceProvider>
 
       </body>
     </html>

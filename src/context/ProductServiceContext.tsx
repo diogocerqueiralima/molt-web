@@ -3,6 +3,7 @@
 import Product from "@/domain/Product";
 import { productService } from "@/services/ProductService";
 import React, { createContext, useContext } from "react";
+import { CategoryServiceContextType, useCategoryService } from "./CategoryServiceContext";
 
 interface ProductServiceContextType {
   getFeaturedProducts: () => Promise<Product[]>;
@@ -22,7 +23,8 @@ export const useProductService = () => {
 
 export default function ProductServiceProvider({ url, children }: { url: string, children: React.ReactNode }) {
 
-  const service = productService(url)
+  const categoryService = useCategoryService()
+  const service = productService(url, categoryService)
 
   return (
     <ProductServiceContext.Provider value={service}>

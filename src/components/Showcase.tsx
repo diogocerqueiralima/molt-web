@@ -25,7 +25,7 @@ export default function Showcase( { title, href }: { title: string, href: string
             <Link href={href} className="text-(--primary) text-xl py-2 px-4 rounded-md bg-(--foreground) cursor-pointer transition duration-500 hover:opacity-75">View all</Link>
 
             {
-                products.map(product => <div key={product.id}>{product.name}</div>)
+                products.map(product => <div key={product.id}>{product.name} : {product.categories.map(c => c.name)}</div>)
             }
 
         </div>
